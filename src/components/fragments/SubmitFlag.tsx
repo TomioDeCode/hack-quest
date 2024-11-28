@@ -1,67 +1,69 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
   DialogDescription,
   DialogFooter,
+  DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
-import { toast } from "@/hooks/use-toast";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Send, X } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
-interface SubmitFlagProps {
+const DefaultSubmitFlag = ({
+  isOpen,
+  onOpenChange,
+  onSubmit,
+}: {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   soalId: string;
-  onSubmit: (id: string, flag: string) => Promise<boolean>;
-}
-
-const SubmitFlag = ({
-  isOpen,
-  onOpenChange,
-  soalId,
-  onSubmit,
-}: SubmitFlagProps) => {
-  const [flag, setFlag] = useState<string>("");
-  const [submitting, setSubmitting] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  onSubmit: (flag: string) => Promise<boolean>;
+}) => {
+  const [flag, setFlag] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async () => {
     if (!flag.trim()) {
-      setError("Flag cannot be empty");
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Flag tidak boleh kosong!",
+      });
       return;
     }
 
-    setSubmitting(true);
-    setError("");
-
+    setIsSubmitting(true);
     try {
-      const success = await onSubmit(soalId, flag);
-      if (success) {
+      const result = await onSubmit(flag);
+
+      if (result) {
+        toast({
+          title: "Berhasil!",
+          description: "Flag benar! Challenge terselesaikan.",
+          variant: "default",
+        });
         onOpenChange(false);
         setFlag("");
       } else {
-        setError("Flag submission failed");
+        toast({
+          variant: "destructive",
+          title: "Salah",
+          description: "Flag salah. Coba lagi!",
+        });
       }
     } catch (error) {
-      if (error instanceof Error) {
-        toast({
-          title: "Error",
-          description: error.message,
-          variant: "destructive",
-        });
-        setError("An error occurred during submission");
-      } else {
-        toast({
-          title: "Error",
-          description: "An unexpected error occurred",
-          variant: "destructive",
-        });
-      }
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Terjadi kesalahan saat submit flag",
+      });
+      console.error(error);
     } finally {
-      setSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -71,25 +73,30 @@ const SubmitFlag = ({
         <DialogHeader>
           <DialogTitle>Submit Flag</DialogTitle>
           <DialogDescription>
-            Enter the flag for this challenge
+            Masukkan flag untuk challenge ini
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4">
           <Input
+            placeholder="Masukkan flag Anda"
             value={flag}
             onChange={(e) => setFlag(e.target.value)}
-            placeholder="Enter flag"
+            disabled={isSubmitting}
           />
-          {error && <p className="text-destructive text-sm">{error}</p>}
         </div>
 
-        <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
-            Cancel
+        <DialogFooter className="gap-2">
+          <Button
+            variant="outline"
+            onClick={() => onOpenChange(false)}
+            disabled={isSubmitting}
+          >
+            <X className="mr-2 h-4 w-4" /> Batal
           </Button>
-          <Button onClick={handleSubmit} disabled={submitting}>
-            {submitting ? "Submitting..." : "Submit"}
+          <Button onClick={handleSubmit} disabled={isSubmitting}>
+            <Send className="mr-2 h-4 w-4" />
+            {isSubmitting ? "Mengirim..." : "Submit"}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -97,4 +104,4 @@ const SubmitFlag = ({
   );
 };
 
-export default SubmitFlag;
+export default DefaultSubmitFlag;

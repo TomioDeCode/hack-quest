@@ -1,9 +1,32 @@
-import React from 'react'
+import React from 'react';
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+interface WebViewProps {
+  url: string;
+  width?: string;
+  height?: string;
 }
 
-export default page
+const WebView: React.FC<WebViewProps> = ({ 
+  url, 
+  width = '100%', 
+  height = '600px' 
+}) => {
+  return (
+    <iframe 
+      src={url}
+      width={width}
+      height={height}
+      allowFullScreen
+    />
+  );
+};
+
+export default function Page() {
+  return (
+    <WebView 
+      url="http://quest.free.nf/quest/web/01" 
+      width="800px" 
+      height="500px" 
+    />
+  );
+}

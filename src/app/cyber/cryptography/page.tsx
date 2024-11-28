@@ -1,9 +1,17 @@
-import TextOnImage from './h'
+// src/app/reverse-engineering/page.tsx
+"use client";
 
-export default function Page() {
+import React from "react";
+import { CTFChallenge } from "@/components/fragments/SidePage";
+import SubmitFlag from "@/components/fragments/SubmitFlag";
+import { cryptoData } from "@/helpers/cryptoData";
+
+export default function page() {
   return (
-    <div className="p-4">
-      <TextOnImage />
-    </div>
-  )
+    <CTFChallenge
+      challenges={cryptoData}
+      SubmitFlagComponent={SubmitFlag}
+      title="Cryptography Engineering CTF"
+    />
+  );
 }
