@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import WebsiteViewer from "../core/website-viewer";
 
 interface CTFChallengeProps {
   challenges: Challenge[];
@@ -34,12 +35,11 @@ interface CTFChallengeProps {
   onSubmit?: (flag: string) => Promise<boolean>;
 }
 
-export const CTFChallenge: React.FC<CTFChallengeProps> = ({
+export const CTFChallenge = ({
   challenges,
   title = "CTF Challenge",
   onSubmit,
-}) => {
-  // Add a mounted state to prevent hydration errors
+}: CTFChallengeProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [flagInput, setFlagInput] = useState("");
@@ -64,6 +64,10 @@ export const CTFChallenge: React.FC<CTFChallengeProps> = ({
     toggleHint,
   } = useCTFChallenges(challenges);
 
+  const solvedChallengesCount = solvedChallenges.filter((solvedId) =>
+    challenges.some((challenge) => challenge.id === solvedId)
+  ).length;
+
   const submitFlagHandler = async (flag: string) => {
     const result = onSubmit
       ? await onSubmit(flag)
@@ -76,7 +80,6 @@ export const CTFChallenge: React.FC<CTFChallengeProps> = ({
     return result;
   };
 
-  // Render nothing on the first render to prevent hydration mismatch
   if (!isMounted) return null;
 
   return (
@@ -90,7 +93,7 @@ export const CTFChallenge: React.FC<CTFChallengeProps> = ({
             <div className="flex items-center justify-center gap-4 mb-4">
               <Trophy className="w-6 h-6 text-yellow-500" />
               <div className="text-lg">
-                Solved: {solvedChallenges.length} / {challenges.length}
+                Solved: {solvedChallengesCount} / {challenges.length}
               </div>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-6">
@@ -107,16 +110,35 @@ export const CTFChallenge: React.FC<CTFChallengeProps> = ({
                 <CardTitle className="text-2xl font-bold">
                   {challenge.title}
                 </CardTitle>
-                <span className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded-md">
-                  Challenge {currentChallenge + 1}
-                </span>
+                <div className="flex justify-end gap-5">
+                  {challenge.file === "" ? (
+                    <div className=""></div>
+                  ) : (
+                    <Link
+                      href={challenge?.file || ""}
+                      download
+                      target="_blank"
+                      className="px-5 py-1 text-sm bg-primary text-primary-foreground rounded-md"
+                    >
+                      Download
+                    </Link>
+                  )}
+                  {challenge.url === "" ? (
+                    <div className=""></div>
+                  ) : (
+                    <WebsiteViewer url={challenge.url} title={challenge.title} />
+                  )}
+                  <span className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded-md">
+                    Challenge {currentChallenge + 1}
+                  </span>
+                </div>
               </div>
               <CardDescription className="text-lg">
                 {challenge.description}
               </CardDescription>
             </CardHeader>
 
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4">
               <div
                 className={`transition-all duration-300 ease-in-out ${
                   showHint ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
@@ -125,19 +147,6 @@ export const CTFChallenge: React.FC<CTFChallengeProps> = ({
                 <div className="bg-primary/50 p-4 rounded-lg border border-primary">
                   <p className="text-sm text-primary">{challenge.hint}</p>
                 </div>
-              </div>
-              <div className="">
-                {challenge.file === "" ? (
-                  <div className=""></div>
-                ) : (
-                  <Link
-                    href={challenge?.file || ""}
-                    download
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
-                  >
-                    Download PDF
-                  </Link>
-                )}
               </div>
 
               <div className="space-y-4">

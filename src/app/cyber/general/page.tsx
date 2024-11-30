@@ -2,15 +2,15 @@
 
 import React from "react";
 import { CTFChallenge } from "@/components/fragments/SidePage";
-import { reverseData } from "@/helpers/reverseData";
 import SubmitFlag from "@/components/fragments/SubmitFlag";
+import { generalData } from "@/helpers/generalData";
 
 export default function page() {
   return (
     <CTFChallenge
-      challenges={reverseData}
+      challenges={generalData}
       SubmitFlagComponent={SubmitFlag}
-      title="Reverse CTF"
+      title="General CTF"
     />
   );
 }

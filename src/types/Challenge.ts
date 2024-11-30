@@ -3,6 +3,7 @@ export interface Challenge {
   title: string;
   description: string;
   file?: string;
+  url?: string;
   flag: string;
   hint: string;
 }

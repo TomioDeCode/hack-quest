@@ -1,4 +1,3 @@
-// src/app/reverse-engineering/page.tsx
 "use client";
 
 import React from "react";
@@ -11,7 +10,7 @@ export default function page() {
     <CTFChallenge
       challenges={forensicDta}
       SubmitFlagComponent={SubmitFlag}
-      title="Reverse Engineering CTF"
+      title="Forensic CTF"
     />
   );
 }

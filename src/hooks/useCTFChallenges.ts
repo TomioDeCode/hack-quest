@@ -50,15 +50,21 @@ export const useCTFChallenges = (challenges: Challenge[]) => {
     return (solvedChallengesInCurrentSet / challenges.length) * 100;
   }, [solvedChallenges, challenges]);
 
-  const canMoveNext =
-    !isLastChallenge &&
-    challenges
-      .slice(currentChallengeIndex + 1)
-      .some((_, index) =>
-        solvedChallenges.includes(
-          challenges[currentChallengeIndex + index + 1].id
-        )
-      );
+  const canMoveNext = useMemo(() => {
+    return (
+      !isLastChallenge &&
+      (currentChallengeSolved ||
+        challenges
+          .slice(currentChallengeIndex + 1)
+          .some((challenge) => solvedChallenges.includes(challenge.id)))
+    );
+  }, [
+    isLastChallenge,
+    currentChallengeSolved,
+    solvedChallenges,
+    currentChallengeIndex,
+    challenges,
+  ]);
 
   const canMovePrevious =
     currentChallengeIndex > 0 &&
@@ -88,20 +94,28 @@ export const useCTFChallenges = (challenges: Challenge[]) => {
   );
 
   const handleNext = useCallback(() => {
-    if (canMoveNext) {
-      // Find the next index of a challenge that has been solved
-      for (let i = currentChallengeIndex + 1; i < challenges.length; i++) {
-        if (solvedChallenges.includes(challenges[i].id)) {
-          setCurrentChallengeIndex(i);
-          break;
+    if (!isLastChallenge) {
+      if (currentChallengeSolved) {
+        setCurrentChallengeIndex((prevIndex) => prevIndex + 1);
+      } else {
+        for (let i = currentChallengeIndex + 1; i < challenges.length; i++) {
+          if (solvedChallenges.includes(challenges[i].id)) {
+            setCurrentChallengeIndex(i);
+            break;
+          }
         }
       }
     }
-  }, [canMoveNext, currentChallengeIndex, challenges, solvedChallenges]);
+  }, [
+    isLastChallenge,
+    currentChallengeIndex,
+    currentChallengeSolved,
+    challenges,
+    solvedChallenges,
+  ]);
 
   const handlePrevious = useCallback(() => {
     if (!isFirstChallenge && canMovePrevious) {
-      // Find the previous index of a challenge that has been solved
       for (let i = currentChallengeIndex - 1; i >= 0; i--) {
         if (solvedChallenges.includes(challenges[i].id)) {
           setCurrentChallengeIndex(i);
