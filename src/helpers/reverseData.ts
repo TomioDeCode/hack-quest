@@ -41,7 +41,7 @@ export const reverseData = [
     id: "reverse-5",
     title: "Reverse String",
     description: "Balikkan string berikut: }GHVUHYHU_JQLUWV{FTC",
-    flag: "CTF{STRING_REVERSED}",
+    flag: "CTF{VWTLQJ_UHUYHUVH}",
     file: "",
     url: "",
     hint: "Tidak Ada Petunjuk",
