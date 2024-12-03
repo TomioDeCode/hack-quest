@@ -2,8 +2,8 @@ export const reverseData = [
   {
     id: "reverse-1",
     title: "Base64 Decode",
-    description: "Decode pesan berikut: Q1RGe0I0UzM2NF9EMyQwRDNyfQ==",
-    flag: "CTF{B4S364_D3$0D3R}",
+    description: "Decode pesan berikut: Q1RGe0I0UzM2NF9EMzNERDNSfQo=",
+    flag: "CTF{B4S364_D33DD3R}",
     file: "",
     url: "",
     hint: "Gunakan metode dekode Base64",
