@@ -24,29 +24,29 @@ export const cryptoData = [
     title: "Caesar Shift",
     description:
       "Pesan berikut dienkripsi menggunakan cipher Caesar dengan geseran sebesar 5. Untuk mendekripsi pesan ini, kalian perlu menggeser setiap huruf kembali sebanyak 5 posisi dalam alfabet.\n\nBerikut adalah pesan yang kalian temukan:\n\n'Jgqi gwtqi jshwduy' \n\nTugas kalian adalah mendekripsi pesan tersebut.",
-    flag: "CTF{Hello_world}",
+    flag: "CTF{Ebli_brold_encrypt}",
     file: "",
     url: "",
     hint: "Pesan ini menggunakan cipher Caesar dengan geseran 5. Cobalah untuk menggeser setiap huruf mundur sebanyak 5 langkah",
   },
-  {
-    id: "crypto-4",
-    title: "Reverse Alphabet",
-    description:
-      "Pesan berikut telah dienkripsi dengan membalik urutan alfabet. Yaitu, A menjadi Z, B menjadi Y, C menjadi X, dan seterusnya. Untuk mendekripsi pesan ini, kalian perlu mengganti setiap huruf dengan pasangan terbaliknya dalam alfabet.\n\nBerikut adalah rangkaian huruf yang kalian temukan:\n\n'Zmbgsrmt' \n\nTugas kalian adalah untuk mendekripsi pesan ini.",
-    flag: "CTF{Encrypted}",
-    file: "",
-    url: "",
-    hint: "Pesan ini dienkripsi dengan membalik urutan alfabet. Gantilah setiap huruf dengan pasangan terbaliknya dalam alfabet",
-  },
-  {
-    id: "crypto-5",
-    title: "XOR Cipher",
-    description:
-      "Pesan berikut telah dienkripsi menggunakan cipher XOR dengan kunci 23. Tugas kalian adalah untuk mendekripsi pesan ini dengan melakukan operasi XOR antara setiap karakter dengan angka kunci 23.\n\nBerikut adalah pesan terenkripsi dalam bentuk hexadecimal:\n\n'47 49 4b 44' \n\nTugas kalian adalah untuk mendekripsi pesan tersebut.",
-    flag: "CTF{XORexample}",
-    file: "",
-    url: "",
-    hint: "Pesan ini dienkripsi menggunakan cipher XOR dengan kunci 23. Lakukan operasi XOR antara setiap karakter dengan kunci 23 untuk mendekripsi pesan",
-  },
+  // {
+  //   id: "crypto-4",
+  //   title: "Reverse Alphabet",
+  //   description:
+  //     "Pesan berikut telah dienkripsi dengan membalik urutan alfabet. Yaitu, A menjadi Z, B menjadi Y, C menjadi X, dan seterusnya. Untuk mendekripsi pesan ini, kalian perlu mengganti setiap huruf dengan pasangan terbaliknya dalam alfabet.\n\nBerikut adalah rangkaian huruf yang kalian temukan:\n\n'Zmbgsrmt' \n\nTugas kalian adalah untuk mendekripsi pesan ini.",
+  //   flag: "CTF{Encrypted}",
+  //   file: "",
+  //   url: "",
+  //   hint: "Pesan ini dienkripsi dengan membalik urutan alfabet. Gantilah setiap huruf dengan pasangan terbaliknya dalam alfabet",
+  // },
+  // {
+  //   id: "crypto-5",
+  //   title: "XOR Cipher",
+  //   description:
+  //     "Pesan berikut telah dienkripsi menggunakan cipher XOR dengan kunci 23. Tugas kalian adalah untuk mendekripsi pesan ini dengan melakukan operasi XOR antara setiap karakter dengan angka kunci 23.\n\nBerikut adalah pesan terenkripsi dalam bentuk hexadecimal:\n\n'47 49 4b 44' \n\nTugas kalian adalah untuk mendekripsi pesan tersebut.",
+  //   flag: "CTF{XORexample}",
+  //   file: "",
+  //   url: "",
+  //   hint: "Pesan ini dienkripsi menggunakan cipher XOR dengan kunci 23. Lakukan operasi XOR antara setiap karakter dengan kunci 23 untuk mendekripsi pesan",
+  // },
 ];
