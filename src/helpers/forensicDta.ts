@@ -28,23 +28,23 @@ export const forensicDta = [
     url: "",
     hint: "Penggunaan tools exiftool sangat berguna untuk saat ini..",
   },
-  {
-    id: "forensic-4",
-    title: "Glory of the Garden",
-    description: "Taman ini berisi lebih dari apa yang terlihat.",
-    flag: "CTF{Glory_Of_The_Garden_Blooms_Eternal}",
-    file: "/forensic/img/flag4.png",
-    url: "",
-    hint: "Apa itu editor hex?",
-  },
-  {
-    id: "forensic-5",
-    title: "Hide Me",
-    description:
-      "SOC menemukan gambar mencurigakan yang dikirim antar pengguna. Tugas Anda adalah menyelidiki dan mengungkap apa yang tersembunyi di dalamnya.",
-    flag: "CTF{Hidden_In_Plain_Sight}",
-    file: "/forensic/img/flag5.png",
-    url: "",
-    hint: "Tidak Ada Petunjuk",
-  },
+  // {
+  //   id: "forensic-4",
+  //   title: "Glory of the Garden",
+  //   description: "Taman ini berisi lebih dari apa yang terlihat.",
+  //   flag: "CTF{Glory_Of_The_Garden_Blooms_Eternal}",
+  //   file: "/forensic/img/flag4.png",
+  //   url: "",
+  //   hint: "Apa itu editor hex?",
+  // },
+  // {
+  //   id: "forensic-5",
+  //   title: "Hide Me",
+  //   description:
+  //     "SOC menemukan gambar mencurigakan yang dikirim antar pengguna. Tugas Anda adalah menyelidiki dan mengungkap apa yang tersembunyi di dalamnya.",
+  //   flag: "CTF{Hidden_In_Plain_Sight}",
+  //   file: "/forensic/img/flag5.png",
+  //   url: "",
+  //   hint: "Tidak Ada Petunjuk",
+  // },
 ];
