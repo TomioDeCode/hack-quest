@@ -4,7 +4,7 @@ export const cryptoData = [
     title: "MOD26 Cipher",
     description:
       "Pesan berikut telah dienkripsi menggunakan MOD26 cipher dengan shift 3. Angka-angka yang dienkripsi: 7 0 3 3 9 14 15 15 3 18 0 19 4 Dekripsi: Kurangi setiap angka dengan 3, lalu ambil hasilnya mod 26.",
-    flag: "CTF{EXAAGLMMPXQB}",
+    flag: "CTF{EXAAGLMMAPXQB}",
     file: "",
     url: "",
     hint: "Angka pertama adalah 7. Setelah mengurangi 3, hasilnya adalah 4, yang berarti huruf 'E'. Dekripsi seluruh rangkaian angka untuk mendapatkan pesan tersembunyi",
