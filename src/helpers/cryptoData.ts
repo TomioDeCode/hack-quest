@@ -24,7 +24,7 @@ export const cryptoData = [
     title: "Caesar Shift",
     description:
       "Pesan berikut dienkripsi menggunakan cipher Caesar dengan geseran sebesar 5. Untuk mendekripsi pesan ini, kalian perlu menggeser setiap huruf kembali sebanyak 5 posisi dalam alfabet.\n\nBerikut adalah pesan yang kalian temukan:\n\n'Jgqi gwtqi jshwduy' \n\nTugas kalian adalah mendekripsi pesan tersebut.",
-    flag: "CTF{Egbl_Borld_Encrypt}",
+    flag: "CTF{EBLD_BROLD_ENCRYPT}",
     file: "",
     url: "",
     hint: "Pesan ini menggunakan cipher Caesar dengan geseran 5. Cobalah untuk menggeser setiap huruf mundur sebanyak 5 langkah",
