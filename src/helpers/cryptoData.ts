@@ -14,7 +14,7 @@ export const cryptoData = [
     title: "The Numbers",
     description:
       "Seseorang meninggalkan pesan terenkripsi berupa angka yang merepresentasikan posisi huruf dalam alfabet. Berikut angkanya: 3 20 6 8 5 18 5 5 14 20 5 18 19 Dekripsi pesan ini!",
-    flag: "CTF{HEREENTERS}",
+    flag: "CTF{CTFHEREENTERS}",
     file: "",
     url: "",
     hint: "Angka pertama adalah 3, yang berarti huruf ke-3 dalam alfabet (yaitu 'C'). Dekripsi seluruh rangkaian angka untuk mendapatkan pesan tersembunyi",
