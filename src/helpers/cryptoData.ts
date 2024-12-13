@@ -34,7 +34,7 @@ export const cryptoData = [
     title: "Reverse Alphabet",
     description:
       "Pesan berikut telah dienkripsi dengan membalik urutan alfabet. Yaitu, A menjadi Z, B menjadi Y, C menjadi X, dan seterusnya. Untuk mendekripsi pesan ini, kalian perlu mengganti setiap huruf dengan pasangan terbaliknya dalam alfabet.\n\nBerikut adalah rangkaian huruf yang kalian temukan:\n\n'Zmbgsrmt' \n\nTugas kalian adalah untuk mendekripsi pesan ini.",
-    flag: "CTF{Encrypted}",
+    flag: "CTF{Anything}",
     file: "",
     url: "",
     hint: "Pesan ini dienkripsi dengan membalik urutan alfabet. Gantilah setiap huruf dengan pasangan terbaliknya dalam alfabet",
