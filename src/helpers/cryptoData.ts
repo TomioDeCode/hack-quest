@@ -44,7 +44,7 @@ export const cryptoData = [
     title: "XOR Cipher",
     description:
       "Pesan berikut telah dienkripsi menggunakan cipher XOR dengan kunci 23. Tugas kalian adalah untuk mendekripsi pesan ini dengan melakukan operasi XOR antara setiap karakter dengan angka kunci 23.\n\nBerikut adalah pesan terenkripsi dalam bentuk hexadecimal:\n\n'47 49 4b 44' \n\nTugas kalian adalah untuk mendekripsi pesan tersebut.",
-    flag: "CTF{XORexample}",
+    flag: "CTF{P^TS}",
     file: "",
     url: "",
     hint: "Pesan ini dienkripsi menggunakan cipher XOR dengan kunci 23. Lakukan operasi XOR antara setiap karakter dengan kunci 23 untuk mendekripsi pesan",
